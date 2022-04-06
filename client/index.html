@@ -13,7 +13,8 @@
     <main class="container">
         <div>
             <h1 class="text-center">REST API | SDL-2</h1>
-
+            <h3>Add Dish</h3>
+            <a href="dish.html">Dish</a>
           <div>
               <div class="mb-3">
                 <label for="name" class="form-label">Dish Name</label>
@@ -26,7 +27,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="quantity" class="form-label">quantity</label>
+                <label for="quantity" class="form-label">Quantity</label>
                 <input type="number" class="form-control" id="quantity">
               </div>
 
@@ -42,12 +43,15 @@
                 <th scope="col">Dish Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody id="dish-container">
               
             </tbody>
           </table>
+         
+          <div id="update"> </div>
         </div>
     </main>
     

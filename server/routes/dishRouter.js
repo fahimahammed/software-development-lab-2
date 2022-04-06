@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Dish = require('../model/dishSchema');
 
+// get dishes 
 router.get('/', async (req, res) =>{
     try{
         const dishes = await Dish.find();
@@ -13,6 +14,7 @@ router.get('/', async (req, res) =>{
 
 })
 
+// get dishes by dish id
 router.get(('/:dishId'), async (req, res)=>{
     try{
         const dish = await Dish.findById(req.params.dishId);
@@ -24,6 +26,8 @@ router.get(('/:dishId'), async (req, res)=>{
     }
 })
 
+
+// post dish 
 router.post('/', async (req, res) => {
     const dishData = new Dish({
         name: req.body.name,
@@ -44,6 +48,7 @@ router.post('/', async (req, res) => {
     }
 })
 
+// delete dish
 router.delete(('/:dishId'), async (req, res)=>{
     try{
         const deleteDish = await Dish.findByIdAndDelete(req.params.dishId);
@@ -54,6 +59,7 @@ router.delete(('/:dishId'), async (req, res)=>{
     }
 })
 
+// update or put dish by dish id 
 router.put('/:dishId', async (req, res)=>{
     try{
         const dish = await Dish.findById(req.params.dishId);
