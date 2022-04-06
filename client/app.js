@@ -62,10 +62,15 @@ const updateItem = (id) => {
         update.innerHTML = `
             <h3>Update Product</h3>
             <h6>ID: ${data._id}</h6>
-            Name: <input type='text' value=${data.name} id="updateName">
-            Price: <input type='number' value=${data.price} id="updatePrice">
-            Quantity: <input type='number' value=${data.quantity} id="updateQuantity">
-            <button onclick = "updateProduct('${data._id}')">Save</button>
+            <label for="updateName" class="form-label">Dish Name</label>
+            <input type='text' class="form-control" value=${data.name} id="updateName">
+
+            <label for="updatePrice" class="form-label">Price</label>
+            Price: <input type='number' class="form-control" value=${data.price} id="updatePrice">
+
+            <label for="updateQuantity" class="form-label">Quantity</label>
+            Quantity: <input type='number' class="form-control" value=${data.quantity} id="updateQuantity">
+            <button class="btn btn-success" onclick = "updateProduct('${data._id}')">Save</button>
         `
     })
 }
