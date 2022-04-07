@@ -45,9 +45,9 @@ const displayDishData = (data) => {
             <td>${singleData.name}</td>
             <td>${singleData.price}</td>
             <td>${singleData.quantity}</td>
-            <td>
-                <button onclick="deleteItem('${singleData._id}')"> Delete </button>
-                <button onclick="updateItem('${singleData._id}')"> Update </button>
+            <td class='d-flex'>
+                <button class='btn text-primary' onclick="updateItem('${singleData._id}')"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class='btn text-danger' onclick="deleteItem('${singleData._id}')"> <i class="fa-solid fa-trash-can"></i> </button>
             </td>
         `
         dishContainer.appendChild(tableRow);
@@ -60,17 +60,24 @@ const updateItem = (id) => {
     .then(data => {
         const update = document.getElementById('update');
         update.innerHTML = `
-            <h3>Update Product</h3>
-            <h6>ID: ${data._id}</h6>
+            <h3 class='mt-4 text-primary'><i class="fa-solid fa-pen-to-square"></i> Update Product</h3> 
+            <hr class='text-primary'>
+            <p class='text-secondary'>ID: ${data._id}</p>
             <label for="updateName" class="form-label">Dish Name</label>
             <input type='text' class="form-control" value=${data.name} id="updateName">
 
-            <label for="updatePrice" class="form-label">Price</label>
-            Price: <input type='number' class="form-control" value=${data.price} id="updatePrice">
+            <div class='row'>
+                <div class='col'>
+                    <label for="updatePrice" class="form-label">Price</label>
+                    <input type='number' class="form-control" value=${data.price} id="updatePrice">
+                </div>
 
-            <label for="updateQuantity" class="form-label">Quantity</label>
-            Quantity: <input type='number' class="form-control" value=${data.quantity} id="updateQuantity">
-            <button class="btn btn-success" onclick = "updateProduct('${data._id}')">Save</button>
+                <div class='col'>
+                    <label for="updateQuantity" class="form-label">Quantity</label>
+                    <input type='number' class="form-control" value=${data.quantity} id="updateQuantity">
+                </div>
+            </div>
+            <button class="btn btn-primary mt-1" onclick = "updateProduct('${data._id}')"><i class="fa-solid fa-database"></i> Save</button>
         `
     })
 }
